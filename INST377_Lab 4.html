@@ -1,0 +1,112 @@
+<!--Madison Montague, INST377(0103)-->
+<html>
+<head>
+    <title>INST377 Lab 4</title>
+    <link rel="stylesheet" href="INST377_Lab4_CSS.css">
+</head>
+
+<body id="colors">
+    <h1 id="heading" >🌳INST377 Lab 4: </h1>
+    <h3 style="color: black;"> Press the Add Text to add something to the title ⬆</h3>
+    <div>
+        <!--Name Box-->
+        <div class="box">
+            <form name="the_form">
+                <label for="name">Name:</label>
+                <input type="text" placeholder="Jane Doe" id="name" required>
+                <input type="button" value="Alert Me!" onclick="return validation()">
+            </form>
+
+            <script type="text/javascript">
+                function validation() {
+                    console.log('Validating user input:', document.the_form.name.value)
+                    const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                    if (document.the_form.name.value.trim() == "") { 
+                        document.body.style.backgroundColor = "rgb(10, 85, 60)";
+                        alert("Enter a valid name!")
+                        return false;
+                    }
+
+                    if (validationRegex.test(document.the_form.name.value)) {
+                        document.body.style.backgroundColor = "rgb(4, 57, 39)";
+                        alert("Please do not use special characters")
+                        return false;
+                    }
+
+                    if (document.the_form.name.value.trim()) {
+                        var name = document.getElementById("name").value;
+                        alert("Hi " + name + "!")
+                        return true;
+                    }
+
+                }
+            </script>
+        </div>
+        
+        <!--Change Color-->
+        <aside class="box">
+            <button onclick="changeColor()">Change🌿Color</button>
+            
+            <script type="text/javascript">
+                function changeColor() {
+                    console.log("Changing color, current color is: ", document.getElementById("colors").style.backgroundColor)
+
+                    if (document.getElementById("colors").style.backgroundColor == 'rgb(140, 199, 81)') {
+                        document.getElementById("colors").style.backgroundColor = 'rgb(169, 186, 157)';
+                    } else {
+                        document.getElementById("colors").style.backgroundColor = 'rgb(140, 199, 81)';
+                    }
+                    console.log("Color changed, new color is: ", document.getElementById("colors").style.backgroundColor)
+                }
+            </script>
+        </aside>
+        
+        <!--Test Text-->
+        <div class="box">
+            <form name="theform">
+                <label for="test">Text Tester:</label>
+                <input type="text" placeholder="enter text here..." id="test" required>
+                <input type="button" value="Test Text" onclick="return Validating()">
+            </form>
+
+            <script type="text/javascript">
+                function Validating() {
+                    console.log('Validating user input:', document.theform.test.value)
+                    const validationRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+                    if (document.theform.test.value.trim() == "") { 
+                        document.body.style.backgroundColor = "rgb(10, 85, 60)";
+                        alert("Enter valid text!")
+                        return false;
+                    }
+
+                    if (validationRegex.test(document.theform.test.value)) {
+                        document.body.style.backgroundColor = "rgb(4, 57, 39)";
+                        alert("Please do not use special characters")
+                        return false;
+                    }
+
+                    if (document.theform.test.value.trim()) {
+                        var test = document.getElementById("test").value;
+                        alert("The text is valid!")
+                        return true;
+                    }
+
+                }
+            </script>
+        </div>
+
+        <!--Add Text-->
+        <aside class="box">
+            <button onclick="addText()">Add🌱Text</button>
+            
+            <script type="text/javascript">
+                function addText() {
+                    var page_heading = document.getElementById("heading").value;
+                    heading.innerHTML += " Add Text✨";
+                }
+            </script>
+        </aside>
+    </div>
+</body>
+
+</html>
